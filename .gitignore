@@ -1,0 +1,38 @@
+# maven ignore
+target/
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.class
+.classpath
+.gitignore.bak
+#tracequick-*/
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+.mymetadata
+.myumldata
+.tern-project
+.myeclipse/
+.checkstyle
+rebel.xml
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
