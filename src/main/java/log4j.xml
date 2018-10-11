@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'
+	debug="true">
+	
+	<appender name="HEAD_CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS/} %-5p] [%t,%L] %c - %m%n" />
+		</layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">       
+            <param name="levelMin" value="debug" />       
+            <param name="levelMax" value="error" />       
+            <param name="AcceptOnMatch" value="true" />       
+        </filter>
+        <param name="BufferSize" value="8192" />
+	</appender>
+    
+	<appender name="ERROR_LOG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.base}/logs/errorlogs/error.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="60MB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyy-MM-dd HH:mm:ss} [%t,%L] - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<logger name="org.apache.velocity" additivity="false">
+		<level value="error" />
+	</logger>
+
+	<logger name="org.springframework.jdbc" additivity="false">
+		<level value="error" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+
+	<logger name="org.springframework.amqp.rabbit.listener"
+		additivity="false">
+		<level value="error" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+
+	<logger name="org.apache.commons" additivity="false">
+		<level value="error" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+
+	<logger name="net.sf.json" additivity="false">
+		<level value="error" />
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.apache.struts" additivity="false">
+		<level value="error" />
+	</logger>
+	
+	<logger name="java.sql" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="HEAD_CONSOLE" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+	
+	<logger name="httpclient.wire" additivity="false">
+		<level value="error" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+	
+	<logger name="com.google.code.yanf4j" additivity="false">
+		<level value="error" />
+		<appender-ref ref="HEAD_CONSOLE" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+
+	<logger name="net.rubyeye.xmemcached" additivity="false">
+		<level value="error" />
+		<appender-ref ref="HEAD_CONSOLE" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+
+	<logger name="com.alibaba.dubbo" additivity="false">
+		<level value="error" />
+		<appender-ref ref="HEAD_CONSOLE" />
+		<appender-ref ref="ERROR_LOG" />
+	</logger>
+	
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="HEAD_CONSOLE" />
+	</root>
+
+</log4j:configuration>

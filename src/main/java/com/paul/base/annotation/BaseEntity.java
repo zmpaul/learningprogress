@@ -1,6 +1,6 @@
 package com.paul.base.annotation;
 
-@SimpleAnnotation(name = "class")
+@SimpleAnnotation(name = " BaseEntity class")
 public class BaseEntity {
     @SimpleAnnotation(name="constructor")
     public BaseEntity() {
