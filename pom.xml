@@ -11,6 +11,8 @@
   		<log4j_version>1.2.17</log4j_version>
   		<junit_version>3.8.1</junit_version>
   		<netty_version>5.0.0.Alpha2</netty_version>
+  		<commons-lang3_version>3.4</commons-lang3_version>
+  		<guava_version>19.0</guava_version>
   </properties>
   <dependencies>
     <dependency>
@@ -28,6 +30,16 @@
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
 		<version>${log4j_version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>${commons-lang3_version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.google.guava</groupId>
+		<artifactId>guava</artifactId>
+		<version>${guava_version}</version>
 	</dependency>
   </dependencies>
   <build>
