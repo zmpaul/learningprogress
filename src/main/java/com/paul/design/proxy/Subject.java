@@ -1,4 +1,4 @@
-package com.paul.example.proxy;
+package com.paul.design.proxy;
 
 
 public interface Subject {

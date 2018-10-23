@@ -1,5 +1,4 @@
 package com.paul.algorithm;
-
 import java.util.Arrays;
 
 /**
@@ -14,6 +13,12 @@ public class SimpleBucketSort {
 
     public static void main(String[] args) {
         int[] num = {1, 98, 8, 4};
+        /*List list = Ints.asList(num);
+        Collections.sort(list, new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        });*/
         int max = 0;
         for (int i = 0; i < num.length; i++) {
             max = Math.max(max, num[i]);

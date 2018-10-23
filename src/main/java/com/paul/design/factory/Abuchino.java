@@ -1,4 +1,4 @@
-package com.paul.example.factory;
+package com.paul.design.factory;
 
 
 public class Abuchino implements Coffee {

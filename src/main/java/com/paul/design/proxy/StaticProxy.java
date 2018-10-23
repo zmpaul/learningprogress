@@ -1,4 +1,4 @@
-package com.paul.example.proxy;
+package com.paul.design.proxy;
 
 /**
  * 静态代理

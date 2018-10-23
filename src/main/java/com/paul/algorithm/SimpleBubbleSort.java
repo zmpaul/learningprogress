@@ -13,10 +13,10 @@ import java.util.Arrays;
 public class SimpleBubbleSort {
 
     public static void main(String[] args) {
-        int[] a = {9, 8, 7, 6, 5, 4, 3, 2, 1};
-        System.out.println(Arrays.toString(a));
+        int[] a = {10, 8, 13, 11, 3};
         sort(a);
-        sort2(a);
+        int[] b = {10, 8, 13, 11, 3};
+        sort2(b);
     }
 
     /**
@@ -63,7 +63,7 @@ public class SimpleBubbleSort {
                     int temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
-                    System.out.println(a[j + 1] + " 与  " + a[i] + " 交换 " + Arrays.toString(a));
+                    System.out.println(a[j + 1] + " 与  " + a[j] + " 交换 " + Arrays.toString(a));
                 }
             }
         }
