@@ -1,5 +1,4 @@
 package com.paul.algorithm;
-import java.util.Arrays;
 
 /**
  * 桶排序
@@ -12,21 +11,23 @@ import java.util.Arrays;
 public class SimpleBucketSort {
 
     public static void main(String[] args) {
-        int[] num = {1, 98, 8, 4};
-        /*List list = Ints.asList(num);
-        Collections.sort(list, new Comparator<Integer>() {
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
-            }
-        });*/
+        int[] num = {1, 10, 8, 4, 4};
         int max = 0;
         for (int i = 0; i < num.length; i++) {
             max = Math.max(max, num[i]);
         }
         int[] realNum = new int[max + 1];
-        for (int i = 0; i < num.length; i++) {
-            realNum[num[i]] = num[i];
+        // 计数
+        for (int j = 0; j < num.length; j++) {
+            realNum[num[j]]++;
         }
-        System.out.println(Arrays.toString(realNum));
+        // 升序 挨个输出
+        for (int k = 0; k < realNum.length; k++) {
+            // realNum[k] 出现次数
+            for (int i = 0; i < realNum[k]; i++) {
+                System.out.print(k + " ");
+            }
+
+        }
     }
 }

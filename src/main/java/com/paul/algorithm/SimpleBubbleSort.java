@@ -14,8 +14,8 @@ public class SimpleBubbleSort {
 
     public static void main(String[] args) {
         int[] a = {10, 8, 13, 11, 3};
-        sort(a);
-        int[] b = {10, 8, 13, 11, 3};
+        // sort(a);
+        int[] b = {10, 9, 8, 7, 6};
         sort2(b);
     }
 
@@ -51,22 +51,41 @@ public class SimpleBubbleSort {
      * @param a
      * @throws
      */
+    /*
+     * private static void sort2(int[] a) {
+     * int k = 0;
+     * for (int i = 0; i < a.length; i++) {
+     * for (int j = 0; j < a.length - i; j++) {
+     * k++;
+     * if (j + 1 >= a.length) {
+     * continue;
+     * }
+     * if (a[j] > a[j + 1]) {
+     * int temp = a[j];
+     * a[j] = a[j + 1];
+     * a[j + 1] = temp;
+     * System.out.println(a[j + 1] + " 与  " + a[j] + " 交换 " + Arrays.toString(a));
+     * }
+     * }
+     * }
+     * System.out.println(k);
+     * }
+     */
+
     private static void sort2(int[] a) {
-        int k = 0;
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length - i; j++) {
-                k++;
                 if (j + 1 >= a.length) {
                     continue;
                 }
-                if (a[j] > a[j + 1]) {
+                if (a[j] > a[j+1]) {
                     int temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
                     System.out.println(a[j + 1] + " 与  " + a[j] + " 交换 " + Arrays.toString(a));
                 }
             }
         }
-        System.out.println(k);
+        System.out.println(Arrays.toString(a));
     }
 }
