@@ -1,5 +1,6 @@
 package com.paul.base.structure;
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 
 /**
@@ -65,7 +66,7 @@ public class BaseStack<T> {
     }
 
     public String toString() {
-        return " stack 大小是 " + this.size();
+        return " stack 大小是 " + Arrays.toString(data);
     }
 
     public static void main(String[] args) {
