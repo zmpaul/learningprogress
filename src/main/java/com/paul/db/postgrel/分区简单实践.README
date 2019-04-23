@@ -1,0 +1,61 @@
+#### 对于已经hash（字段）分表数据量大的查询问题
+###### 1.建立主表
+```
+CREATE TABLE parent (
+        id      integer,
+        name    text
+ )
+```
+###### 2.插入模拟数据
+```
+insert into parent (id,name)values(1,'北京')
+insert into parent (id,name)values(2,'昌平')
+```
+###### 3.继承主表，添加check约束
+```
+CREATE TABLE child2 ( --子表
+        //添加check查询
+       CHECK ( id BETWEEN 3 AND 10 )
+  ) INHERITS (parent);
+```
+##### 4.添加触发器,实现插入分表
+```
+//添加触发器,插入主表  插入分表
+CREATE OR REPLACE FUNCTION child_trigger()
+RETURNS TRIGGER AS $body$
+DECLARE
+insert_statement text;  --分区写入sql
+BEGIN
+  IF NEW.id >=3 AND NEW.id <=10 then
+    raise notice 'this is raise demo , id is %',NEW.id;
+    insert_statement := 'insert into child2 values($1.*)';
+    EXECUTE insert_statement USING NEW;
+    RETURN NULL;
+  END IF;
+  RETURN NEW;
+END
+$body$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER child2_insert_trigger
+BEFORE INSERT ON parent
+FOR EACH ROW EXECUTE PROCEDURE child_trigger();
+//测试是否插入分区
+insert into parent (id,name)values(3,'插入child2')
+select * from only child2；
+```
+![fbeba0c274b9a4d51d397adfa867243f.png](en-resource://database/4804:0)
+
+##### 5.插入模拟数据
+```
+insert into parent select generate_series(1,10000000),md5(random()::text);
+
+//查看执行计划
+explain analyze select * from parent where id >=3 and id<=4
+```
+![15c2762d1c770f186f7db3dd5f427e92.png](en-resource://database/4806:0)
+![7a05451086ef20b1a05ad09625a44d7c.png](en-resource://database/4808:0)
+
+总结：从执行计划看，会从主，分区 表依次检索条件数据，最好主表无数据，分布在各个分区，否则达不到优化查询的问题
+
+
