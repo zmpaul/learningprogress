@@ -11,7 +11,6 @@ package com.paul.base.structure;
  * @date 2019年4月12日 下午5:20:18
  */
 public class DoubleDirectionLink {
-
     public class Node<T> {
 
         // 指针域
