@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 /**
  * 计算1024阶乘
- * BigInteger 用法.用int long 输出结果0
+ * BigInteger 用法.用int long 输出0
  * 
  * @ClassName: Factorial
  * @Description: TODO(这里用一句话描述这个类的作用)
