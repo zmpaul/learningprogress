@@ -1,4 +1,4 @@
-package com.paul.exception;
+package com.paul.base.exception;
 
 /**
  * i=2
@@ -13,8 +13,8 @@ package com.paul.exception;
  * @author admin
  * @date 2019年3月28日 下午5:53:39
  */
-public class TestException {
-    public TestException() {
+public class NestedException {
+    public NestedException() {
     }
  
     boolean testEx() throws Exception {
@@ -72,7 +72,7 @@ public class TestException {
     }
  
     public static void main(String[] args) {
-        TestException testException1 = new TestException();
+        NestedException testException1 = new NestedException();
         try {
             testException1.testEx();
         } catch (Exception e) {

@@ -14,6 +14,8 @@
   		<commons-lang3_version>3.4</commons-lang3_version>
   		<guava_version>19.0</guava_version>
   		<spring_version>4.3.16.RELEASE</spring_version>
+  		<aspectjrt_version>1.8.9</aspectjrt_version>
+  		<cglib_version>3.2.2</cglib_version>
   </properties>
   <dependencies>
     <dependency>
@@ -32,11 +34,35 @@
 		<artifactId>spring-context</artifactId>
 		<version>${spring_version}</version>
 	</dependency>
+	
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-tx</artifactId>  
+	    <version>3.1.0.RELEASE</version>  
+	</dependency>
+	<!-- aop -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${spring_version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>${aspectjrt_version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${aspectjrt_version}</version>
+	</dependency>
+	
     <dependency>
 	    <groupId>io.netty</groupId>
 	    <artifactId>netty-all</artifactId>
 	    <version>${netty_version}</version>
 	</dependency>
+	
 	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
