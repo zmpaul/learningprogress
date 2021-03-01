@@ -7,44 +7,39 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>learningprogress</name>
   <url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+	</parent>
   <properties>
   		<log4j_version>1.2.17</log4j_version>
   		<junit_version>4.12</junit_version>
   		<netty_version>5.0.0.Alpha2</netty_version>
   		<commons-lang3_version>3.4</commons-lang3_version>
   		<guava_version>19.0</guava_version>
-  		<spring_version>4.3.16.RELEASE</spring_version>
   		<aspectjrt_version>1.8.9</aspectjrt_version>
   		<cglib_version>3.2.2</cglib_version>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit_version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-test</artifactId>
-		<version>${spring_version}</version>
 	</dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>
-		<version>${spring_version}</version>
 	</dependency>
 	
 	<dependency>  
 	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-tx</artifactId>  
-	    <version>3.1.0.RELEASE</version>  
+	    <artifactId>spring-tx</artifactId>
 	</dependency>
 	<!-- aop -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-aop</artifactId>
-		<version>${spring_version}</version>
 	</dependency>
 	<dependency>
 		<groupId>org.aspectj</groupId>
@@ -78,6 +73,22 @@
 		<artifactId>guava</artifactId>
 		<version>${guava_version}</version>
 	</dependency>
+	  <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-web</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.junit.jupiter</groupId>
+		  <artifactId>junit-jupiter</artifactId>
+		  <version>RELEASE</version>
+		  <scope>compile</scope>
+	  </dependency>
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.13.2</version>
+		  <scope>compile</scope>
+	  </dependency>
   </dependencies>
   <build>
     <finalName>learningprogress</finalName>
