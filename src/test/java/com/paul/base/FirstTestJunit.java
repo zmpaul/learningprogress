@@ -2,8 +2,10 @@ package com.paul.base;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Assert;
 
 /**
@@ -12,8 +14,8 @@ import org.springframework.util.Assert;
  * @author admin
  * @date 2019年7月9日 下午4:41:53
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:config/spring/spring-test.xml")
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class FirstTestJunit {
     @Test
     public void testNull() {
