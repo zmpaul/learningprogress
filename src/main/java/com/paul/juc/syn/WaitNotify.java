@@ -2,6 +2,8 @@ package com.paul.juc.syn;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.Callable;
+
 /**
  * @author zm
  * @version 1.0
@@ -13,25 +15,25 @@ public class WaitNotify {
 
     public static void main(String[] args) throws InterruptedException {
         Object lock = new Object();
-        new Thread(() -> {
+        Thread thread = new Thread(() -> {
             synchronized (lock){
                 log.error(" thread1 name is {}",Thread.currentThread().getName());
                 try{
-                    Thread.sleep(1);
+                    Thread.sleep(1000);
+                    log.error(" thread1 即将被挂起 is {}",Thread.currentThread().getName());
                     lock.wait();
                     log.error(" thread1 线程被挂起 is {}",Thread.currentThread().getName());
                 }catch (Exception ex){
                     ex.printStackTrace();
                 }
             }
-
-        }).start();
-        lock.wait();
+        });
+        thread.start();
         new Thread(() -> {
             synchronized (lock){
                 log.error(" thread2 name is {}",Thread.currentThread().getName());
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 }catch (Exception ex){
                     ex.printStackTrace();
                 }
