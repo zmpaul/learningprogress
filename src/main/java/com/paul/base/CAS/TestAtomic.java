@@ -19,7 +19,7 @@ public class TestAtomic {
         Thread thread1 = new Thread(new Runnable() {
 
             public void run() {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 10000; i++) {
                     // insrc++ 非原子操作
                     insrc++;
                     atomicInteger.getAndIncrement();
@@ -29,7 +29,7 @@ public class TestAtomic {
 
         Thread thread2 = new Thread(new Runnable() {
             public void run() {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 10000; i++) {
                     insrc++;
                     atomicInteger.getAndIncrement();
                 }
